@@ -3,7 +3,8 @@
   "version": "1.5.4",
   "scripts": {
     "start": "vite --host",
-    "dev": "vite -d",
+    "dev": "vite",
+    "dev:debug": "vite -d",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
@@ -31,7 +32,8 @@
     "vue-toastification": "next",
     "vue3-apexcharts": "^1.4.1",
     "vuetify": "^3.3.2",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",

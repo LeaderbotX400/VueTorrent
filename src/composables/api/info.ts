@@ -9,8 +9,8 @@ export const useSessionInfo = () => {
   return useQuery({
     queryKey: ['session'],
     queryFn: async () => {
-      const { data } = await useAxios<SessionInfoResponse>('/transfer/info', axiosInstance)
-      return data.value
+      const res: SessionInfoResponse = await fetch('/api/v2/transfer/info').then(res => res.json())
+      return res
     },
     refetchInterval: pollingRate
   })
@@ -20,17 +20,8 @@ export const useMainData = (rid?: number) => {
   return useQuery({
     queryKey: ['maindata'],
     queryFn: async () => {
-      const { data } = await useAxios<MainDataResponse>(
-        '/sync/maindata',
-        {
-          params: {
-            rid
-          }
-        },
-        axiosInstance
-      )
-
-      return data.value
+      const res: MainDataResponse = await fetch(`/api/v2/sync/maindata?rid=${rid}`).then(res => res.json())
+      return res
     },
     refetchInterval: pollingRate
   })

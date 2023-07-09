@@ -23,7 +23,7 @@ const currentIcon = computed(() => {
 <template>
   <VTooltip>
     <template #activator="{ props }">
-      <VBtn :icon="currentIcon" flat block v-bind="props" />
+      <VBtn :icon="currentIcon" flat block variant="text" v-bind="props" />
     </template>
     <span>{{ status }}</span>
   </VTooltip>

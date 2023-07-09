@@ -6,7 +6,11 @@ import { useAxios } from '@vueuse/integrations/useAxios'
 
 const execute = (action: string, params?: Record<string, any>) => {
   const data = new URLSearchParams(params)
-  return useAxios(action, { method: 'POST', params: { data } }, axiosInstance)
+  return fetch(`/api/v2/${action}`, {
+    method: 'POST',
+    body: data
+  })
+  // return useAxios(action, { method: 'POST', params: { data } }, axiosInstance)
 }
 
 const torrentAction = (action: string, hashes: string[], extra?: Record<string, any>) => {

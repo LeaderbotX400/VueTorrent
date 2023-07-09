@@ -46,7 +46,7 @@ const toggleTheme = () => {
     <VCol>
       <VTooltip>
         <template #activator="{ props }">
-          <VBtn :icon="mdiExitToApp" flat block v-bind="props" @click="authStore.logout()" />
+          <VBtn :icon="mdiExitToApp" flat block v-bind="props" @click="authStore.logout()" variant="text" />
         </template>
         <span>{{ $t('logout') }}</span>
       </VTooltip>
@@ -54,14 +54,8 @@ const toggleTheme = () => {
     <VCol>
       <VTooltip>
         <template #activator="{ props }">
-          <VBtn
-            :icon="altSpeed ? mdiSpeedometerSlow : mdiSpeedometer"
-            flat
-            block
-            v-bind="props"
-            :class="altSpeed ? 'text-accent' : ''"
-            @click="toggleSpeedLimitsMode()"
-          />
+          <VBtn :icon="altSpeed ? mdiSpeedometerSlow : mdiSpeedometer" flat block variant="text" v-bind="props"
+            :class="altSpeed ? 'text-accent' : ''" @click="toggleSpeedLimitsMode()" />
         </template>
         <span>{{ $t('navbar.action.altSpeed') }}</span>
       </VTooltip>
@@ -72,13 +66,8 @@ const toggleTheme = () => {
     <VCol>
       <VTooltip>
         <template #activator="{ props }">
-          <VBtn
-            :icon="darkThemeEnabled ? mdiBrightness4 : mdiBrightness7"
-            flat
-            block
-            v-bind="props"
-            @click="toggleTheme()"
-          />
+          <VBtn :icon="darkThemeEnabled ? mdiBrightness4 : mdiBrightness7" flat block variant="text" v-bind="props"
+            @click="toggleTheme()" />
         </template>
         <span>{{ darkThemeEnabled ? 'Dark' : 'Light' }}</span>
       </VTooltip>
