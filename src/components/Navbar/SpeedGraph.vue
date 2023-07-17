@@ -11,9 +11,10 @@ const theme = useTheme()
 
 const sessionInfo = useSessionInfo()
 
+
 // data
-const uploadData = ref([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-const downloadData = ref([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+const uploadData = ref(new Array(15).fill(0))
+const downloadData = ref(new Array(15).fill(0))
 
 const series = ref([
   {
@@ -64,9 +65,11 @@ const chartOptions: ApexOptions = {
 watch(
   () => sessionInfo.data.value,
   () => {
+    uploadData.value.pop()
     uploadData.value.shift()
     uploadData.value.push(sessionInfo.data.value?.up_info_speed || 0)
 
+    downloadData.value.pop()
     downloadData.value.shift()
     downloadData.value.push(sessionInfo.data.value?.dl_info_speed || 0)
   }
